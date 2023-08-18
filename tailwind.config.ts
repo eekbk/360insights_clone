@@ -9,10 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'genericBanner': "url('https://info.360insights.com/hubfs/_2022/banners/generic-banner.png')",
+        'ladyNumberOne': 'https://www.360insights.com/hs-fs/hubfs/_2022/home…bp?width=801&height=801&name=Lady-Number-One.webp',
+        'dots': 'http://www.w3.org/2000/svg',
+        'logo': 'http://www.w3.org/1999/xlink',
       },
+      keyframes: {
+        slideUp: {
+          '0%': {
+            'opacity': '0.2',
+            'transform': 'translateY(100%)',
+          },
+          '100%': {
+            'opacity': '1',
+            'transform': 'translateY(0)'
+          }
+        },
+      },
+      animation: {
+        slideUp: "slideUp 0.5s ease-in-out"
+      }
     },
   },
   plugins: [],
