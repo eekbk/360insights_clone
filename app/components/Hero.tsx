@@ -25,8 +25,8 @@ export default function Hero() {
   }, [headerIndex]);
 
   return (
-    <div className="bg-genericBanner bg-cover py-12 px-5 tracking-[0.1px]">
-      <div className='text-2xl font-bold'>
+    <div className="bg-genericBanner bg-cover py-12 px-5 tracking-[0.1px] flex flex-col md:flex-row justify-center">
+      <div className='text-2xl font-bold md:w-1/2'>
         <h1
           className={`${headerUtils} ${headerIndex === 0
               ? 'text-purple-600'
@@ -48,11 +48,9 @@ export default function Hero() {
               : 'hidden'}`}
         >{headers[3]}</h1>
         <h1>Without the Worry</h1>
-      </div>
-      <div className="my-3">
-        <p className="text-xl font-light bg-transparent">Channel software to motivate partners and manage spend. You do you. We&apos;ll handle the rest.</p>
-      </div>
+        <p className="text-xl font-light bg-transparent my-3">Channel software to motivate partners and manage spend. You do you. We&apos;ll handle the rest.</p>
       <FuchsiaButton text="Products and Platform" />
+      </div>
       <div className="bg-cyan-500 relative rounded-[2.5rem] w-[17rem] h-[17rem] my-7">
           <Image className='absolute left-6 w-[98%] bottom-0 z-20' src='/ladyNumberOne.png' width={400} height={400} alt="Lady Number One" />
           <Image className="absolute top-8 left-9 z-10 w-7/12" src='/logoShape.svg' width={400} height={400} alt="logo" />
