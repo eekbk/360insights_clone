@@ -9,13 +9,15 @@ export default function ContactHeader() {
   const chevron: string = 'transition ease transform duration-300';
 
   useEffect(() => {
-    window.addEventListener('scroll', handleClose, true)
-    return () => window.removeEventListener('scroll', handleClose, true);
+    window.addEventListener('scroll', handleClose)
+    return () => window.removeEventListener('scroll', handleClose);
   }, [])
 
   useEffect(() => {
     const checkIfClickedOutside = (e: any) => {
-      if (isOpen && !ref.current?.contains(e.target)) {
+      e.preventDefault();
+      if (isOpen && !ref.current?.contains(e.target) && e.target.alt !== 'carat') {
+
         setIsOpen(false)
       }
     }
