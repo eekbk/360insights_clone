@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Hamburger from "./Hamburger";
 
+const menuItems: string[] = ['Products', 'Solutions', 'Resources', 'About'];
+
 export default function Navbar() {
   return (
     <nav className="top-0 sticky bg-white z-50">
