@@ -49,12 +49,6 @@ export default function Navbar() {
     }
   }, [isAboutOpen])
 
-  useEffect(() => {
-    if(window.innerWidth >= 1026) {
-      setIsHamburgerOpen(false);
-    }
-  }, [window.innerWidth])
-
   return (
     <nav className="top-0 sticky bg-white z-50">
       <div className="w-full flex justify-between px-5 py-2">
