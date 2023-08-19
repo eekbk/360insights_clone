@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import Navbar from './components/Navbar'
-import ContactHeader from './components/ContactHeader';
-import Hero from './components/Hero';
+import Navbar from './_components/Navbar'
+import ContactHeader from './_components/ContactHeader';
+import Hero from './_components/Hero';
 
 export default function Home() {
   const numberGenerator = () => {
