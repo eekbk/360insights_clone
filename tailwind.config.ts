@@ -11,8 +11,6 @@ const config: Config = {
       backgroundImage: {
         'genericBanner': "url('https://info.360insights.com/hubfs/_2022/banners/generic-banner.png')",
         'ladyNumberOne': 'https://www.360insights.com/hs-fs/hubfs/_2022/home…bp?width=801&height=801&name=Lady-Number-One.webp',
-        'dots': 'http://www.w3.org/2000/svg',
-        'logo': 'http://www.w3.org/1999/xlink',
       },
       keyframes: {
         slideUp: {
