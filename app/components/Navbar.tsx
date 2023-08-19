@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
 
-  const mobileMenuClasses: string = 'flex justify-between py-6';
+  const mobileMenuClasses: string = 'flex justify-between py-6 cursor-pointer hover:underline active:underline';
   const desktopMenuClasses: string = 'flex text-sm font-semibold [&>*]:mx-1'
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function Navbar() {
         </div>
           <Hamburger isOpen={isHamburgerOpen} setIsOpen={setIsHamburgerOpen} />
         <div className="hidden lg:flex justify-between items-center w-[42rem]">
-          <div className={desktopMenuClasses}>
+          <div className={desktopMenuClasses} >
             <div>Products</div>
             <Chevron isOpen={isProductsOpen} setIsOpen={setIsProductsOpen} size="medium"/>
           </div>
@@ -79,19 +79,19 @@ export default function Navbar() {
       </div>
         {isHamburgerOpen &&
           <div className="absolute bg-white w-full flex flex-col px-5 text-sm font-semibold lg:hidden">
-            <div className={mobileMenuClasses}>
+            <div className={mobileMenuClasses} onClick={() => {setIsProductsOpen(!isProductsOpen)}}>
               <div>Products</div>
               <Chevron isOpen={isProductsOpen} setIsOpen={setIsProductsOpen} />
             </div>
-            <div className={mobileMenuClasses}>
+            <div className={mobileMenuClasses} onClick={() => {setIsSolutionsOpen(!isSolutionsOpen)}}>
               <div>Solutions</div>
               <Chevron isOpen={isSolutionsOpen} setIsOpen={setIsSolutionsOpen} />
             </div>
-            <div className={mobileMenuClasses}>
+            <div className={mobileMenuClasses} onClick={() => {setIsResourcesOpen(!isResourcesOpen)}}>
               <div>Resources</div>
               <Chevron isOpen={isResourcesOpen} setIsOpen={setIsResourcesOpen} />
             </div>
-            <div className={mobileMenuClasses}>
+            <div className={mobileMenuClasses} onClick={() => {setIsAboutOpen(!isAboutOpen)}}>
               <div>About</div>
               <Chevron isOpen={isAboutOpen} setIsOpen={setIsAboutOpen} />
             </div>
