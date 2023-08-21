@@ -7,7 +7,7 @@ type Props = {
 export default function MobileMenuModal({section}: Props) {
   console.log('section: ', section)
   return (
-    <div className="bg-white overflow-y-scroll max-h-full">
+    <div className="bg-white overflow-y-scroll max-h-full lg:hidden overscroll-none">
       {section.map(category => (
         <div key={category.title} className="py-4 ">
           <h1 className="text-cyan-600 text-lg font-bold tracking-wide">{category.title}</h1>
