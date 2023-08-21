@@ -18,15 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-
-        <ContactHeader />
+          <ContactHeader />
           <Navbar />
-          <main>
-            {children}
-            <div className='absolute bg-cyan-600 p-3.5 rounded-full h-[60px] w-[60px] bottom-5 right-5 z-[99] shadow-lg'>
-              <Image src='/chat.svg' width={150} height={150} alt='chat button'/>
-            </div>
-          </main>
+        <main className=''>
+          {children}
+          <div className='absolute bg-cyan-600 p-3.5 rounded-full h-[60px] w-[60px] bottom-5 right-5 z-[99] shadow-lg'>
+            <Image src='/chat.svg' width={150} height={150} alt='chat button'/>
+          </div>
+        </main>
       </body>
     </html>
   )
