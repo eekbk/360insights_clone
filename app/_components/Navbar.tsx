@@ -70,7 +70,7 @@ export default function Navbar() {
           <Image src="https://www.360insights.com/hubfs/_2022/logo.svg" width={190} height={48} alt="360insights logo" />
         </div>
           <Hamburger isOpen={isHamburgerOpen} setIsOpen={setIsHamburgerOpen} />
-        <div className="hidden lg:flex justify-between items-center w-[42rem]">
+        <div className="hidden lg:flex justify-between items-center w-[42rem] relative">
           <DesktopMenuItem title="Products" isOpen={isProductsOpen} setIsOpen={setIsProductsOpen} section={products} />
           <DesktopMenuItem title="Solutions" isOpen={isSolutionsOpen} setIsOpen={setIsSolutionsOpen} section={solutions} />
           <DesktopMenuItem title="Resources" isOpen={isResourcesOpen} setIsOpen={setIsResourcesOpen} section={resources} />
