@@ -9,7 +9,7 @@ export default function Card({cardInfo}: Props) {
   const { category, title, callToAction, imageUrl } = cardInfo;
 
   return (
-    <div className="bg-white rounded-3xl p-4 py-8 shadow-sm space-y-3">
+    <div className="bg-white rounded-3xl p-4 py-8 shadow space-y-3">
       <div className="flex justify-between items-center">
         <div className="w-12">
           <Image src={imageUrl} width={100} height={100} alt={category} />
