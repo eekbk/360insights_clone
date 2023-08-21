@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Navbar from './_components/Navbar'
 import ContactHeader from './_components/ContactHeader';
 import Hero from './_components/Hero';
+import MediaView from './_components/MediaView';
 
 export default function Home() {
   const numberGenerator = () => {
@@ -21,6 +22,7 @@ export default function Home() {
   return (
       <>
         <Hero />
+        <MediaView />
       </>
   )
 }
