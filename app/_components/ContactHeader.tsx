@@ -5,7 +5,7 @@ import Image from "next/image"
 import Chevron from "./chevron";
 
 export default function ContactHeader() {
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLInputElement>();
   const [isOpen, setIsOpen] = useState(false);
   const chevron: string = 'transition ease transform duration-300';
 
@@ -33,7 +33,9 @@ export default function ContactHeader() {
 
 
   return (
-    <header className="flex justify-end text-xs font-light tracking-wide p-4">
+    <div className="flex justify-center text-xs font-light tracking-wide p-4">
+      <div className="w-full flex justify-end max-w-[73rem] md:pr-3">
+
       <div className='flex mr-6 hover:underline'>
         <button className='mr-1.5'>Call U.S. 1-866-684-2308</button>
         <Chevron isOpen={isOpen} setIsOpen={setIsOpen} size="small"/>
@@ -47,6 +49,7 @@ export default function ContactHeader() {
           <button className="hover:underline">Call U.K. +44 (0)1789 404020</button>
         </div>
       }
-    </header>
+      </div>
+    </div>
     )
 }
