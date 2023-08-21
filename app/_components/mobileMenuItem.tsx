@@ -11,7 +11,6 @@ type Props = {
 }
 
 export default function MobileMenuItem({title, isOpen, setIsOpen, section}: Props) {
-  console.log('isOpen: ', isOpen);
 
   return(
     <>

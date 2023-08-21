@@ -5,7 +5,6 @@ type Props = {
 }
 
 export default function MobileMenuModal({section}: Props) {
-  console.log('section: ', section)
   return (
     <div className="bg-white overflow-y-scroll max-h-full lg:hidden overscroll-none">
       {section.map(category => (

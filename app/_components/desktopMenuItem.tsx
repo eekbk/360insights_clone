@@ -1,4 +1,4 @@
-import { useRef, useEffect, Dispatch, SetStateAction } from "react";
+import { useRef, useEffect, Dispatch, SetStateAction, useState } from "react";
 import { MenuCategory } from "../_types/interfaces";
 import Chevron from "./chevron";
 import DesktopMenuModal from "./desktopMenuModal";
@@ -12,10 +12,16 @@ type Props = {
 
 export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Props) {
   const ref = useRef<HTMLInputElement>();
-  const windowSize = useRef(window.innerWidth)
+  const [windowSize, setWindowSize] = useState(0);
 
   useEffect(() => {
-    if (windowSize.current >= 1024) {
+    setWindowSize(window.innerWidth);
+  }, [])
+
+
+
+  useEffect(() => {
+    if (windowSize && windowSize >= 1024) {
       const checkIfClickedOutside = (e: any) => {
         e.preventDefault();
         if(isOpen && !ref.current?.contains(e.target) && e.target.id !== title) {
@@ -27,7 +33,7 @@ export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Pro
 
       return () => {document.removeEventListener('mousedown', checkIfClickedOutside)}
     }
-  }, [isOpen])
+  }, [isOpen, windowSize])
 
 
 
