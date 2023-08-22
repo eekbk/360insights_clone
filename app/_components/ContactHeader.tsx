@@ -33,7 +33,7 @@ export default function ContactHeader() {
 
 
   return (
-    <div className="flex justify-center text-xs font-light tracking-wide p-4">
+    <div className="bg-white flex justify-center text-xs font-light tracking-wide leading-6 py-2 px-4">
       <div className="w-full flex justify-end max-w-[73rem] md:pr-3">
 
       <div className='flex mr-6 hover:underline'>
