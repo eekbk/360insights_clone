@@ -14,7 +14,11 @@ export default function MobileMenuItem({title, isOpen, setIsOpen, section}: Prop
 
   return(
     <>
-      <div className="flex justify-between py-6 cursor-pointer hover:underline active:underline" onClick={() => {setIsOpen(!isOpen)}}>
+      <div
+        className="h-fit flex justify-between py-6 cursor-pointer
+                  hover:underline active:underline"
+        onClick={() => {setIsOpen(!isOpen)}}
+      >
         <div>{title}</div>
         <Chevron isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
