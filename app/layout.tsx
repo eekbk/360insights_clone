@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <header className='sticky -top-[48px] z-50 h-max'>
+        <header className='sticky -top-[40px] z-50 h-max'>
           <ContactHeader />
           <Navbar />
         </header>
