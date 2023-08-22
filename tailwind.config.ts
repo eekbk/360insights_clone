@@ -33,7 +33,7 @@ const config: Config = {
         slideUp: "slideUp 0.5s ease-in-out"
       },
       maxHeight: {
-        'mobileMenu': 'calc(100vh - 64px)',
+        'mobileMenu': 'calc(100vh - 104px)',
       }
     },
   },
