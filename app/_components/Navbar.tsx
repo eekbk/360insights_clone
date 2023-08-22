@@ -1,10 +1,8 @@
 'use client'
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Hamburger from "./Hamburger";
-import Chevron from "./chevron";
-import MobileMenuModal from "./mobileMenuModal";
 import { products, solutions, resources, about } from "@/data/menuItems";
 import DesktopMenuItem from "./desktopMenuItem";
 import MobileMenuItem from "./mobileMenuItem";
@@ -12,16 +10,11 @@ import MobileMenuItem from "./mobileMenuItem";
 const menuItems: string[] = ['Products', 'Solutions', 'Resources', 'About'];
 
 export default function Navbar() {
-  const ref = useRef<HTMLInputElement>(null);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
-  const [isAnyMenuOpen, setIsAnyMenuOpen] = useState(false);
-
-  const mobileMenuClasses: string = 'flex justify-between py-6 cursor-pointer hover:underline active:underline';
-  const desktopMenuClasses: string = 'flex text-sm font-semibold [&>*]:mx-1'
 
   useEffect(() => {
     if (isProductsOpen) {
