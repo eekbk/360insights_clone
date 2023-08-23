@@ -8,6 +8,9 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'Eric\'s 360insights Clone',
   description: 'Frontend Showcase',
+  icons: {
+    icon: '/360_logo-icon.png'
+  }
 }
 
 export default function RootLayout({
