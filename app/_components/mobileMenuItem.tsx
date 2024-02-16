@@ -20,7 +20,7 @@ export default function MobileMenuItem({title, isOpen, setIsOpen, section}: Prop
         onClick={() => {setIsOpen(!isOpen)}}
       >
         <div>{title}</div>
-        <Chevron isOpen={isOpen} setIsOpen={setIsOpen} />
+        <Chevron isOpen={isOpen} />
       </div>
       {isOpen && <MobileMenuModal section={section} />}
     </>
