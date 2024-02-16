@@ -40,7 +40,7 @@ export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Pro
     }
 
     return () => {}
-  }, [isOpen, title, windowSize])
+  }, [isOpen, setIsOpen, title, windowSize])
 
 
 
