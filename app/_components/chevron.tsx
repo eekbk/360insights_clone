@@ -2,7 +2,6 @@ import { useState, useEffect, Dispatch, SetStateAction } from "react";
 
 type Props = {
   isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
   size?: string;
 }
 

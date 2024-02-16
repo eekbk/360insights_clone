@@ -11,12 +11,12 @@ type Props = {
 }
 
 export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Props) {
-  const ref = useRef<HTMLInputElement>();
+  const ref = useRef<HTMLDivElement>(null);
   const [windowSize, setWindowSize] = useState(0);
 
   useEffect(() => {
     setWindowSize(window.innerWidth);
-  }, [])
+  }, [window.innerWidth])
 
 
 
@@ -24,7 +24,7 @@ export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Pro
     if (windowSize && windowSize >= 1024) {
       const checkIfClickedOutside = (e: any) => {
         e.preventDefault();
-        if(isOpen && !ref.current?.contains(e.target) && e.target.id !== title) {
+        if(isOpen && ref.current && !ref.current?.contains(e.target) && e.target.id !== title) {
           setIsOpen(false);
         }
       }
@@ -33,15 +33,16 @@ export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Pro
 
       return () => {document.removeEventListener('mousedown', checkIfClickedOutside)}
     }
-  }, [isOpen, windowSize])
+  }, [isOpen, setIsOpen, title, windowSize])
 
 
 
   return (
     <>
-    <div  className='hidden lg:flex text-sm font-semibold [&>*]:mx-1' >
-    <button id={title} onClick={() => setIsOpen(!isOpen)} className="focus:underline active:underline"  >{title}</button>
+    <div ref={ref} className='hidden lg:flex text-sm font-semibold [&>*]:mx-1' >
+    <button id={title} onClick={() => setIsOpen(!isOpen)} className="focus:underline active:underline hover:underline flex items-center justify-between gap-3"  >{title}
     <Chevron isOpen={isOpen} setIsOpen={setIsOpen} size="medium"/>
+    </button>
     </div>
     {isOpen && <DesktopMenuModal section={section}/>}
 
