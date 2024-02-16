@@ -13,6 +13,7 @@ export default function Navbar() {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState('');
 
+  // to ensure that only one dropdown can be open at a time
   const handleDropdownToggle = (dropDownName: string) => {
     if (openDropdown === dropDownName) {
       setOpenDropdown('') // we'll toggle off if the same dropdown is clicked again
@@ -20,6 +21,8 @@ export default function Navbar() {
       setOpenDropdown(dropDownName);
     }
   }
+
+  // mainly for mobile view
   const closeAll = () => {
     setIsHamburgerOpen(false);
     setOpenDropdown('');
