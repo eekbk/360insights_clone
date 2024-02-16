@@ -11,58 +11,18 @@ const menuItems: string[] = ['Products', 'Solutions', 'Resources', 'About'];
 
 export default function Navbar() {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState('');
 
-  useEffect(() => {
-    if (isProductsOpen) {
-      setIsSolutionsOpen(false);
-      setIsResourcesOpen(false);
-      setIsAboutOpen(false);
+  const handleDropdownToggle = (dropDownName: string) => {
+    if (openDropdown === dropDownName) {
+      setOpenDropdown('') // we'll toggle off if the same dropdown is clicked again
+    } else {
+      setOpenDropdown(dropDownName);
     }
-  }, [isProductsOpen])
-
-  useEffect(() => {
-    if(isSolutionsOpen) {
-      setIsProductsOpen(false);
-      setIsResourcesOpen(false);
-      setIsAboutOpen(false);
-    }
-  }, [isSolutionsOpen])
-
-  useEffect(() => {
-    if(isResourcesOpen) {
-      setIsProductsOpen(false);
-      setIsSolutionsOpen(false);
-      setIsAboutOpen(false);
-    }
-  }, [isResourcesOpen])
-
-  useEffect(() => {
-    if(isAboutOpen) {
-      setIsProductsOpen(false);
-      setIsSolutionsOpen(false);
-      setIsResourcesOpen(false);
-    }
-  }, [isAboutOpen])
-
-  useEffect(() => {
-    if(!isHamburgerOpen) {
-      setIsProductsOpen(false);
-      setIsSolutionsOpen(false);
-      setIsResourcesOpen(false);
-      setIsAboutOpen(false);
-    }
-  }, [isHamburgerOpen])
-
+  }
   const closeAll = () => {
     setIsHamburgerOpen(false);
-    setIsProductsOpen(false);
-    setIsSolutionsOpen(false);
-    setIsResourcesOpen(false);
-    setIsAboutOpen(false);
+    setOpenDropdown('');
   }
 
   return (
@@ -74,10 +34,10 @@ export default function Navbar() {
         </Link >
           <Hamburger isOpen={isHamburgerOpen} setIsOpen={setIsHamburgerOpen} />
         <div className="hidden lg:flex justify-between items-center w-[42rem] relative">
-          <DesktopMenuItem title="Products" isOpen={isProductsOpen} setIsOpen={setIsProductsOpen} section={products} />
-          <DesktopMenuItem title="Solutions" isOpen={isSolutionsOpen} setIsOpen={setIsSolutionsOpen} section={solutions} />
-          <DesktopMenuItem title="Resources" isOpen={isResourcesOpen} setIsOpen={setIsResourcesOpen} section={resources} />
-          <DesktopMenuItem title="About" isOpen={isAboutOpen} setIsOpen={setIsAboutOpen} section={about} />
+          <DesktopMenuItem title="Products" isOpen={openDropdown === 'Products'} setIsOpen={() => handleDropdownToggle('Products')} section={products} />
+          <DesktopMenuItem title='Solutions' isOpen={openDropdown === 'Solutions'} setIsOpen={() => handleDropdownToggle('Solutions')} section={solutions} />
+          <DesktopMenuItem title='Resources' isOpen={openDropdown === 'Resources'} setIsOpen={() => handleDropdownToggle('Resources')} section={resources} />
+          <DesktopMenuItem title='About' isOpen={openDropdown === 'About'} setIsOpen={() => handleDropdownToggle('About')} section={about} />
           <button className="bg-cyan-360 hover:bg-pink-600 text-white text-lg font-bold tracking-wider leading-5 py-3.5 px-6 rounded-[2rem]">Talk to Sales</button>
         </div>
       </div>
@@ -86,10 +46,10 @@ export default function Navbar() {
                         flex flex-col px-5 text-sm font-semibold lg:hidden
                          top-16 overflow-y-auto"
         >
-            <MobileMenuItem title='Products' isOpen={isProductsOpen} setIsOpen={setIsProductsOpen} section={products} />
-            <MobileMenuItem title='Solutions' isOpen={isSolutionsOpen} setIsOpen={setIsSolutionsOpen} section={solutions} />
-            <MobileMenuItem title='Resources' isOpen={isResourcesOpen} setIsOpen={setIsResourcesOpen} section={resources} />
-            <MobileMenuItem title='About' isOpen={isAboutOpen} setIsOpen={setIsAboutOpen} section={about} />
+            <MobileMenuItem title='Products' isOpen={openDropdown === 'Products'} setIsOpen={() => handleDropdownToggle('Products')} section={products} />
+            <MobileMenuItem title='Solutions' isOpen={openDropdown === 'Solutions'} setIsOpen={() => handleDropdownToggle('Solutions')} section={solutions} />
+            <MobileMenuItem title='Resources' isOpen={openDropdown === 'Resources'} setIsOpen={() => handleDropdownToggle('Resources')} section={resources} />
+            <MobileMenuItem title='About' isOpen={openDropdown === 'About'} setIsOpen={() => handleDropdownToggle('About')} section={about} />
             <button className="bg-cyan-360 hover:bg-pink-600 active:bg-pink-600 text-white text-lg font-bold tracking-wider py-1.5 px-11 mt-2 mb-4 rounded-3xl">Talk to Sales</button>
         </div>
       }
