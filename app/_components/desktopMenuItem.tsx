@@ -13,7 +13,7 @@ type Props = {
 
 export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
+  const [windowSize, setWindowSize] = useState<number>(0);
 
   // check for window resizing to add event listener
   useEffect(() => {
@@ -21,6 +21,10 @@ export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Pro
       setWindowSize(window.innerWidth);
     }, 250); // debounce to avoid excessive state changes or rerenders
 
+    // set initial state
+    handleResize();
+
+    // Setup event listener for future resize events
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [])
