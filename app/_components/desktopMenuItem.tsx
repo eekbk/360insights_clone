@@ -38,14 +38,15 @@ export default function DesktopMenuItem({title, isOpen, setIsOpen, section}: Pro
 
 
   return (
-    <>
-    <div ref={ref} className='hidden lg:flex text-sm font-semibold [&>*]:mx-1' >
-    <button id={title} onClick={() => setIsOpen(!isOpen)} className="focus:underline active:underline hover:underline flex items-center justify-between gap-3"  >{title}
-    <Chevron isOpen={isOpen} setIsOpen={setIsOpen} size="medium"/>
-    </button>
-    </div>
+    <div ref={ref}>
+      <div  className='hidden lg:flex text-sm font-semibold [&>*]:mx-1' >
+        <button id={title} onClick={() => setIsOpen(!isOpen)} className="focus:underline active:underline hover:underline flex items-center justify-between gap-3"  >
+          {title}
+          <Chevron isOpen={isOpen} size="medium"/>
+        </button>
+      </div>
     {isOpen && <DesktopMenuModal section={section}/>}
 
-    </>
+    </div>
   )
 }
