@@ -1,5 +1,4 @@
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
-import Image from "next/image";
 
 type Props = {
   isOpen: boolean;
@@ -7,7 +6,7 @@ type Props = {
   size?: string;
 }
 
-export default function Chevron({isOpen, setIsOpen, size = 'large'}: Props) {
+export default function Chevron({isOpen, size = 'large'}: Props) {
   const [caratClasses, setCaratClasses] = useState('');
   const largeCaratClasses: string = "h-[0.75em] w-[0.75em] border-t-[0.25em] border-r-[0.25em] border-black rotate-[135deg] border-solid ";
   const smallCaratClasses: string = "h-[0.6em] w-[0.6em] border-t-[0.2em] border-r-[0.2em] border-black rotate-[135deg] border-solid ";
@@ -22,7 +21,7 @@ export default function Chevron({isOpen, setIsOpen, size = 'large'}: Props) {
       setCaratClasses(smallCaratClasses);
     }
   }, [size])
-  // const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div
       className={`transition ease transform duration-300 flex items-center ${
@@ -37,18 +36,8 @@ export default function Chevron({isOpen, setIsOpen, size = 'large'}: Props) {
                   ? 'border-cyan-600'
                   : ''
                 }`}
-                onClick={() => {setIsOpen(!isOpen)}}
                 id={size === 'small' ? 'small-carat' : ''}
               />
-
-
-    {/* <button
-
-      onClick={() => {setIsOpen(!isOpen)}}
-      >
-      <Image src="/chevronDown.svg" width={0} height={0} style={{ width: '15px', height: 'auto'}} alt="carat" />
-    </button> */}
-
     </div>
   )
 }
